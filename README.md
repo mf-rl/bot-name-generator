@@ -48,8 +48,6 @@ Edit `config.json`:
 - `"api"` - Use the API server (requires running name-api.js)
 - `"groq"` - Use Groq AI directly (for API server internal use)
 - `"local"` - Use local word lists only
-- `"openai"` - Use OpenAI (requires API key)
-- `"puter"` - Puter.js (browser only)
 
 ## Usage
 
@@ -70,17 +68,6 @@ You should see:
 [API] AI Provider: groq
 [API] Health check: http://localhost:3000/api/health
 [API] Generate name: http://localhost:3000/api/generate-name
-```
-
-### Start the Bots (in a new terminal)
-
-```bash
-npm run bots
-```
-
-Or manually:
-```bash
-node multibots.js
 ```
 
 ## API Endpoints
@@ -111,25 +98,6 @@ Response:
 }
 ```
 
-## How It Works
-
-1. **multibots.js** requests a name from the API
-2. **name-api.js** tries to generate using Groq AI
-3. If AI fails or no API key, falls back to local word lists
-4. Returns the generated name
-
-## Running Both Together
-
-**Terminal 1 - Start API:**
-```bash
-npm run api
-```
-
-**Terminal 2 - Start Bots:**
-```bash
-npm run bots
-```
-
 ## Groq Free Tier Limits
 
 - **14,400 requests/day** (plenty for bot name generation)
@@ -154,41 +122,6 @@ npm run bots
 ```bash
 npm install
 ```
-
-## Configuration Reference
-
-### config.json
-
-```json
-{
-  "maxBots": 3,
-  "spawnMin": 20000,
-  "spawnRange": 40000,
-  "server": {
-    "host": "localhost",
-    "port": 25565
-  },
-  "nameGenerator": {
-    "aiProvider": "api",
-    "groqApiKey": "",
-    "adjectives": [...],
-    "nouns": [...]
-  },
-  "api": {
-    "enabled": true,
-    "host": "localhost",
-    "port": 3000
-  }
-}
-```
-
-## Alternative AI Providers
-
-You can also use:
-- **OpenAI**: Set `aiProvider: "openai"` and add `openaiApiKey`
-- **Local**: Set `aiProvider: "local"` for offline generation
-- **Groq Direct**: Modify code to use Groq directly in multibots.js
-
 ## License
 
 ISC
