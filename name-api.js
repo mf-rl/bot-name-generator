@@ -35,7 +35,7 @@ async function generateNameWithGroq() {
     const completion = await groq.chat.completions.create({
       messages: [{
         role: 'user',
-        content: 'Generate a single cool, unique Minecraft bot name in the format: AdjectiveNoun#### (e.g., SwiftWolf1234, IronFalcon5678). Only respond with the name, nothing else.'
+        content: 'Generate a single cool, unique Minecraft bot name in the format: AdjectiveNoun#### (e.g., SwiftWolf1234, IronFalcon5678). Adjetive and Noun can be ocasionaly in leetspeak. Only respond with the name, nothing else.'
       }],
       model: 'llama-3.3-70b-versatile',
       temperature: 1.0,
