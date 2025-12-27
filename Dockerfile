@@ -1,5 +1,5 @@
 # Use official Node.js runtime as base image
-FROM node:20-alpine
+FROM node:20-slim
 
 # Set working directory in container
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install --production
+RUN npm install --omit=dev
 
 # Copy application files
 COPY name-api.js ./
