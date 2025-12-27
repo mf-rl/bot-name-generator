@@ -18,6 +18,12 @@ try {
   process.exit(1);
 }
 
+// Override API key from environment variable if present
+if (process.env.GROQ_API_KEY) {
+  config.nameGenerator.groqApiKey = process.env.GROQ_API_KEY;
+  console.log('[API] Using Groq API key from environment variable');
+}
+
 // Groq client (lazy-loaded)
 let groq = null;
 

@@ -26,28 +26,41 @@ npm install
 4. Create a new API key
 5. Copy the key
 
-### 3. Configure the API
+### 3. Configure the API Key
 
-Edit `config.json`:
+**Option 1: Environment Variable (Recommended)**
+
+Set the `GROQ_API_KEY` environment variable:
+
+```bash
+# Windows PowerShell
+$env:GROQ_API_KEY="your-groq-api-key-here"
+
+# Windows CMD
+set GROQ_API_KEY=your-groq-api-key-here
+
+# Linux/Mac
+export GROQ_API_KEY="your-groq-api-key-here"
+```
+
+**Option 2: Config File**
+
+Edit `config.json` and add your API key:
 
 ```json
 {
   "nameGenerator": {
-    "aiProvider": "api",
+    "aiProvider": "groq",
     "groqApiKey": "your-groq-api-key-here"
-  },
-  "api": {
-    "enabled": true,
-    "host": "localhost",
-    "port": 3000
   }
 }
 ```
 
+**Note**: Environment variable takes precedence over config file if both are set.
+
 **AI Provider Options:**
-- `"api"` - Use the API server (requires running name-api.js)
-- `"groq"` - Use Groq AI directly (for API server internal use)
-- `"local"` - Use local word lists only
+- `"groq"` - Use Groq AI (recommended, free tier available)
+- `"local"` - Use local word lists only (no API key needed)
 
 ## Usage
 
@@ -80,7 +93,12 @@ docker build -t bot-name-api .
 
 ### Run the Container
 
-**Standard run (port 3000):**
+**With environment variable (Recommended):**
+```bash
+docker run -p 3000:3000 -e GROQ_API_KEY="your-api-key-here" bot-name-api
+```
+
+**Standard run (uses config.json):**
 ```bash
 docker run -p 3000:3000 bot-name-api
 ```

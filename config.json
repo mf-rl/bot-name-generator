@@ -1,6 +1,6 @@
 {
   "nameGenerator": {
-    "aiProvider": "local",
+    "aiProvider": "groq",
     "groqApiKey": "",
     "adjectives": [
       "Swift", "Silent", "Iron", "Shadow", "Crimson", "Frost", "Storm", "Wild", "Lone", "Night",
