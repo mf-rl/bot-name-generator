@@ -87,18 +87,23 @@ app.get('/api/health', (req, res) => {
 app.post('/api/generate-name', async (req, res) => {
   try {
     let name = null;
+    let actualProvider = 'local';
     
     // Try AI generation if configured
     if (config.nameGenerator.aiProvider === 'groq' && config.nameGenerator.groqApiKey) {
       name = await generateNameWithGroq();
+      if (name) {
+        actualProvider = 'groq';
+      }
     }
     
     // Fallback to local generation
     if (!name) {
       name = generateRandomName();
+      actualProvider = 'local';
     }
     
-    res.json({ name, provider: name ? (config.nameGenerator.aiProvider === 'groq' ? 'groq' : 'local') : 'local' });
+    res.json({ name, provider: actualProvider });
   } catch (error) {
     console.error('[API] Error generating name:', error);
     res.status(500).json({ error: 'Failed to generate name', name: generateRandomName(), provider: 'local' });
@@ -108,16 +113,21 @@ app.post('/api/generate-name', async (req, res) => {
 app.get('/api/generate-name', async (req, res) => {
   try {
     let name = null;
+    let actualProvider = 'local';
     
     if (config.nameGenerator.aiProvider === 'groq' && config.nameGenerator.groqApiKey) {
       name = await generateNameWithGroq();
+      if (name) {
+        actualProvider = 'groq';
+      }
     }
     
     if (!name) {
       name = generateRandomName();
+      actualProvider = 'local';
     }
     
-    res.json({ name, provider: name ? (config.nameGenerator.aiProvider === 'groq' ? 'groq' : 'local') : 'local' });
+    res.json({ name, provider: actualProvider });
   } catch (error) {
     console.error('[API] Error generating name:', error);
     res.status(500).json({ error: 'Failed to generate name', name: generateRandomName(), provider: 'local' });
