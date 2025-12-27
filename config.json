@@ -1,0 +1,34 @@
+{
+  "nameGenerator": {
+    "aiProvider": "local",
+    "groqApiKey": "",
+    "adjectives": [
+      "Swift", "Silent", "Iron", "Shadow", "Crimson", "Frost", "Storm", "Wild", "Lone", "Night",
+      "Blazing", "Thunder", "Mystic", "Dark", "Bright", "Ancient", "Noble", "Savage", "Cosmic", "Eternal",
+      "Golden", "Silver", "Bronze", "Jade", "Obsidian", "Crystal", "Phantom", "Spectral", "Ethereal", "Void",
+      "Raging", "Fierce", "Gentle", "Mighty", "Cunning", "Wise", "Bold", "Stealth", "Quantum", "Neon",
+      "Arctic", "Desert", "Jungle", "Mountain", "Ocean", "Volcano", "Glacier", "Ember", "Ash", "Smoke",
+      "Lunar", "Solar", "Stellar", "Galactic", "Nebula", "Comet", "Meteor", "Aurora", "Eclipse", "Zenith",
+      "Venom", "Toxic", "Rogue", "Rebel", "Chaos", "Order", "Primal", "Feral", "Cyber", "Digital",
+      "Plasma", "Laser", "Pulse", "Shock", "Blitz", "Rush", "Turbo", "Hyper", "Ultra", "Mega",
+      "Alpha", "Beta", "Gamma", "Delta", "Omega", "Prime", "Elite", "Supreme", "Royal", "Imperial",
+      "Scarlet", "Azure", "Emerald", "Violet", "Amber", "Ivory", "Onyx", "Pearl", "Ruby", "Sapphire"
+    ],
+    "nouns": [
+      "Wolf", "Falcon", "Tiger", "Eagle", "Raven", "Panther", "Dragon", "Viper", "Hawk", "Bear",
+      "Lion", "Serpent", "Phoenix", "Griffin", "Wyvern", "Hydra", "Kraken", "Leviathan", "Chimera", "Sphinx",
+      "Fox", "Lynx", "Jaguar", "Leopard", "Cheetah", "Cougar", "Puma", "Ocelot", "Caracal", "Bobcat",
+      "Cobra", "Python", "Mamba", "Anaconda", "Adder", "Asp", "Rattler", "Sidewinder", "Taipan", "Krait",
+      "Condor", "Kite", "Kestrel", "Osprey", "Harrier", "Buzzard", "Vulture", "Owl", "Hornet", "Wasp",
+      "Shark", "Barracuda", "Orca", "Piranha", "Hammerhead", "Mako", "Megalodon", "Stingray", "Mantis", "Scorpion",
+      "Warrior", "Hunter", "Ranger", "Scout", "Assassin", "Knight", "Paladin", "Sentinel", "Guardian", "Warden",
+      "Slayer", "Reaper", "Specter", "Wraith", "Banshee", "Demon", "Angel", "Titan", "Giant", "Golem",
+      "Samurai", "Ninja", "Ronin", "Shogun", "Daimyo", "Yakuza", "Templar", "Crusader", "Gladiator", "Spartan",
+      "Blade", "Shadow", "Storm", "Thunder", "Lightning", "Tempest", "Hurricane", "Typhoon", "Cyclone", "Tornado"
+    ]
+  },
+  "api": {
+    "host": "localhost",
+    "port": 3000
+  }
+}
