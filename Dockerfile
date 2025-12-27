@@ -1,6 +1,9 @@
 # Use official Node.js runtime as base image
 FROM node:20-slim
 
+ARG GROQ_API_KEY
+ENV GROQ_API_KEY=${GROQ_API_KEY}
+
 # Set working directory in container
 WORKDIR /app
 

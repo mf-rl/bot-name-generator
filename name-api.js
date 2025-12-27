@@ -22,13 +22,22 @@ try {
 if (process.env.GROQ_API_KEY) {
   config.nameGenerator.groqApiKey = process.env.GROQ_API_KEY;
   console.log('[API] Using Groq API key from environment variable');
+  console.log(`[API] API key length: ${config.nameGenerator.groqApiKey.length} characters`);
+} else {
+  console.log('[API] No GROQ_API_KEY environment variable found');
+  if (config.nameGenerator.groqApiKey) {
+    console.log(`[API] Using Groq API key from config.json (${config.nameGenerator.groqApiKey.length} characters)`);
+  } else {
+    console.log('[API] No Groq API key configured - will use local generation only');
+  }
 }
 
 // Groq client (lazy-loaded)
 let groq = null;
 
 async function generateNameWithGroq() {
-  if (!config.nameGenerator.groqApiKey) {
+  if (!config.nameGenerator.groqApiKey || config.nameGenerator.groqApiKey.trim() === '') {
+    console.log('[API] Skipping Groq: No API key configured');
     return null;
   }
 
