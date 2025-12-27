@@ -85,32 +85,43 @@ You should see:
 
 ## Docker Setup
 
-### Build the Docker Image
+### Option 1: Using Docker Compose (Recommended)
 
+Docker Compose automatically reads the `GROQ_API_KEY` from your host environment:
+
+```bash
+# Start the service (builds if needed)
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop the service
+docker-compose down
+```
+
+The compose file will use your system's environment variable automatically.
+
+### Option 2: Using docker run
+
+**Build the image:**
 ```bash
 docker build -t bot-name-api .
 ```
 
-### Run the Container
+**Run with host environment variable:**
+```bash
+docker run -p 3000:3000 -e GROQ_API_KEY bot-name-api
+```
 
-**With environment variable (Recommended):**
+**Run with explicit key:**
 ```bash
 docker run -p 3000:3000 -e GROQ_API_KEY="your-api-key-here" bot-name-api
 ```
 
-**Standard run (uses config.json):**
+**Run in background:**
 ```bash
-docker run -p 3000:3000 bot-name-api
-```
-
-**With custom port mapping:**
-```bash
-docker run -p 8080:3000 bot-name-api
-```
-
-**Run in background (detached mode):**
-```bash
-docker run -d -p 3000:3000 --name bot-name-generator --restart unless-stopped bot-name-api
+docker run -d -p 3000:3000 -e GROQ_API_KEY --name bot-name-generator --restart unless-stopped bot-name-api
 ```
 
 **Stop the container:**
