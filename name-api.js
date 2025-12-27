@@ -37,9 +37,13 @@ async function generateNameWithGroq() {
         role: 'user',
         content: 'Generate a single cool, unique Minecraft bot name in the format: AdjectiveNoun#### (e.g., SwiftWolf1234, IronFalcon5678). Adjetive and Noun can be ocasionaly in leetspeak. Only respond with the name, nothing else.'
       }],
-      model: 'llama-3.3-70b-versatile',
+      model: 'openai/gpt-oss-120b',
       temperature: 1.0,
-      max_tokens: 20
+      max_completion_tokens: 8192,
+      top_p: 1,
+      reasoning_effort: "medium",
+      stream: true,
+      stop: null
     });
 
     const name = completion.choices[0]?.message?.content?.trim();
