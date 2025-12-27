@@ -57,7 +57,7 @@ async function generateNameWithGroq() {
       max_completion_tokens: 8192,
       top_p: 1,
       reasoning_effort: "medium",
-      stream: true,
+      stream: false,
       stop: null
     });
 
