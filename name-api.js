@@ -115,7 +115,7 @@ app.get('/api/generate-name', async (req, res) => {
 });
 
 const PORT = config.api?.port || 3000;
-const HOST = config.api?.host || 'localhost';
+const HOST = process.env.API_HOST || config.api?.host || 'localhost';
 
 app.listen(PORT, HOST, () => {
   console.log(`[API] Name generation server running at http://${HOST}:${PORT}`);

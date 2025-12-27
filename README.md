@@ -70,6 +70,49 @@ You should see:
 [API] Generate name: http://localhost:3000/api/generate-name
 ```
 
+## Docker Setup
+
+### Build the Docker Image
+
+```bash
+docker build -t bot-name-api .
+```
+
+### Run the Container
+
+**Standard run (port 3000):**
+```bash
+docker run -p 3000:3000 bot-name-api
+```
+
+**With custom port mapping:**
+```bash
+docker run -p 8080:3000 bot-name-api
+```
+
+**Run in background (detached mode):**
+```bash
+docker run -d -p 3000:3000 --name bot-name-generator bot-name-api
+```
+
+**Stop the container:**
+```bash
+docker stop bot-name-generator
+```
+
+**View logs:**
+```bash
+docker logs bot-name-generator
+```
+
+### Access the API
+
+Once the container is running, access it at:
+- Health check: `http://localhost:3000/api/health`
+- Generate name: `http://localhost:3000/api/generate-name`
+
+**Note:** Make sure to configure your `config.json` with the Groq API key before building the Docker image.
+
 ## API Endpoints
 
 ### Health Check
