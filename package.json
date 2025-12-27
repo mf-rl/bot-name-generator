@@ -4,7 +4,10 @@
   "description": "API service for generating bot names",
   "main": "name-api.js",
   "scripts": {
-    "start": "node name-api.js"
+    "start": "node name-api.js",
+    "release:patch": "npm version patch && git push && git push --tags",
+    "release:minor": "npm version minor && git push && git push --tags",
+    "release:major": "npm version major && git push && git push --tags"
   },
   "keywords": [],
   "author": "",
