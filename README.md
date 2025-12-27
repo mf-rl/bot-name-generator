@@ -92,7 +92,7 @@ docker run -p 8080:3000 bot-name-api
 
 **Run in background (detached mode):**
 ```bash
-docker run -d -p 3000:3000 --name bot-name-generator bot-name-api
+docker run -d -p 3000:3000 --name bot-name-generator --restart unless-stopped bot-name-api
 ```
 
 **Stop the container:**
